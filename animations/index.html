@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <style>
+            #myContainer {
+                width: 400px;
+                height: 400px;
+                position: relative;
+                background: yellow;
+            }
+            
+            #myAnimation {
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                background: red;
+            }
+        </style>
+   
+    </head>
+
+    <body>
+
+        <h1>My First JavaScript Animation</h1>
+        
+        <p>
+        <button onclick="myMove()">Click Me</button>
+        </p>
+        
+        <div id ="myContainer">
+            <div id ="myAnimation"></div>
+        </div>
+
+        <script>
+            function myMove(){
+                var elem = document.getElementById("myAnimation");
+                var position = 0;
+                var id = setInterval(frame, 10); //The setInterval() method calls a function or evaluates an expression at specified intervals (in milliseconds).
+            
+                function frame() {
+                    if (position == 350) {
+                        clearInterval(id); 
+                        //The setInterval() method will continue calling the function until clearInterval() is called, or the window is closed.
+                        //The ID value returned by setInterval() is used as the parameter for the clearInterval() method.
+                    } else {
+                        position++;
+                        elem.style.top = position + 'px';
+                        elem.style.left = position + 'px';
+                    }
+                }
+            }
+        </script>
+    </body>
+<html>
